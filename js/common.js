@@ -3,16 +3,17 @@ $(document).ready(function(){
 
     // ======== header 시작 ========
     let mainHeader = ".main_wrap .main_nav1";
+    let mainHeaderUl = ".main_wrap .main_nav1 ul";
+    let mainContents = ".main_wrap .contents"
     $(window).scroll(function(){
-        let winS = $(window).scrollTop()*1;
+        let winS = $(window).scrollTop();
         console.log(winS);
-        if(winS <= 100){
-            $(mainHeader).removeClass("header_fixed");
-            $(mainHeader).css({
-                "height":(200-winS)+"px"
-            });
+        if(winS < 40){
+            $(mainHeader).height((150-winS)+"px");
+        }else if(winS < 80){
+            $(mainHeader).height((150-winS)+"px");
         }else{
-            $(mainHeader).addClass("header_fixed");
+            $(mainHeader).height("70px");
         }
     });
 

@@ -2,14 +2,18 @@
 .main_wrap{width: 100%;}
 body{font-family: "나눔고딕";}
 .main_nav1{ background: #fcdf33;}
-.main_nav1 ul{
+.main_nav1 ul,
+.main_nav2 ul
+{
     list-style: none;
     padding: 5px;
     font-size: 14px;
     margin: 0 auto;
     width: 90%;
 }
-.main_nav1 ul li a{color: rgba(0,0,0,.6);text-decoration: none;}
+.main_nav1 ul li a,
+.main_nav2 ul li a
+{color: rgba(0,0,0,.6);text-decoration: none;}
 .main_upper{
     box-sizing: border-box;
     height: 37px;
@@ -47,4 +51,56 @@ body{font-family: "나눔고딕";}
     border: 1px solid #fcdf33 ;
 }
 .main_bold{color: #000;}
+.main_nav2{position: relative;}
+.main_nav2 ul{
+    display: flex;
+    justify-content: left;
+    padding-left: 20px;
+    border-bottom: #000;
+}
+.main_nav2 ul li{
+    height: 62px;
+    width: 130px;
+    line-height:62px;
+    padding-right: 20px;
+    font-size: 16px;
+}
 
+.img-zoom-container {
+    width: 1000px;
+    margin: 0 auto;
+    position: relative;
+    display: flex;
+  }
+  #myimage{
+      width: 500px;
+      height: 500px;
+  }
+  
+  .img-zoom-lens {
+    position: absolute;
+    border: 1px solid #d4d4d4;
+    /*set the size of the lens:*/
+    width: 40px;
+    height: 40px;
+  }
+  
+  .img-zoom-result {
+    border: 1px solid #d4d4d4;
+    /*set the size of the result div:*/
+    width: 400px;
+    height: 400px;
+    /* display: inline-block; */
+  }
+  .product_litleMenu{
+    margin: 0 auto;
+    display: flex;
+    justify-content: right;
+    list-style: none;
+    width: 800px;
+  }
+
+  .product_litleMenu li{
+    margin: 5px;
+
+  }

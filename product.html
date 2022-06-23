@@ -60,11 +60,80 @@
                         <li>>농산물</li>
                     </ul>
                 </div>
-                    
-                <div class="img-zoom-container">
-                    <img id="myimage" src="https://shop-phinf.pstatic.net/20220523_69/16533021917573Y73N_JPEG/54438034195242630_1483584243.jpg?type=m510" width="300" height="240" alt="Girl">
-                    <div id="myresult" class="img-zoom-result"></div>
-                </div>
+                 
+                        <div class="product_wrap">
+                            <img id="myimage" src="https://shop-phinf.pstatic.net/20220523_69/16533021917573Y73N_JPEG/54438034195242630_1483584243.jpg?type=m510" width="300" height="240" alt="Girl">
+                                
+                            <div class="card">
+                                    <div class="card-body">
+                                      <h5 class="card-title">농가직송 경산 신선복숭아 1.6kg</h5>
+                                      <div class="card-text"><span>67%</span><p><b class = "dc"> 45,900원 </b><strong>15,000원</strong></p></div>
+                                      <div class = "order_option_wrap">
+                                        <div class = "order_space">
+                                            <select name="" id="" class = "order_option">
+                                                <option value="">상품 구성 </option>
+                                                <option value="옵션 1 : 10,000원"> 옵션 1 </option>
+                                                <option value="옵션 2 : 20,000원"> 옵션 2 </option>
+                                                <option value="옵션 3 : 30,000원"> 옵션 3 </option>
+                                            </select>
+                                            <div class = "order_controll">
+                                                <input type="text" value="" class = "order_name" disabled></input>
+                                                <div class="order_controll_inner">
+                                                    <button id = "-" value="-">-</button>
+                                                    <input type="text" value="1" class = "order_num" disabled></input>
+                                                    <button id = "+" value="+">+</button>
+                                                    <button class = "order_send">OK</button>
+                                                </div>
+                                            </div>
+                                            <div class = "order_check">
+
+                                            </div>
+                                            <script>
+                                                $(function(){
+                                                   
+                                                    $(".order_option").change(function(){
+                                                        let val = $(this).val()
+                                                        $(".order_name").val(val)
+                                                        $(".order_num").val(1)
+                                                        $(".order_controll").css("display","flex")
+
+                                                    })
+
+                                                    let i = 1;
+                                                    $(".order_send").click(function(){
+                                                        i++
+                                                        $(".order_check").append("<div class = 'order_check_inner'></div>")
+                                                        $(".order_check div").addClass("num"+i)
+                                                        $(".order_check_inner").append($(".order_name").val()," 수량 ",$(".order_num").val(),"<span>"+18900+"</span>")
+                                                    })
+
+
+                                                    $(".order_controll button").click(function(){
+                                                        let orderNum;
+                                                        let count=1;
+                                                        if($(this).val()=="+"){
+                                                            orderNum = Number($(".order_num").val())
+                                                            orderNum ++
+                                                            $(".order_num").val(orderNum)
+                                                        }else if($(".order_num").val() > 0){
+                                                            if($(this).val()=="-"){
+                                                                orderNum = Number($(".order_num").val())
+                                                                orderNum --
+                                                                $(".order_num").val(orderNum)
+                                                            }
+                                                        }
+                                                    })
+
+                                                })
+                                            </script>
+                                        </div>
+                                        <div class = "order_disc"><p>원산지 : 국산</p></div>
+                                        <div class = "order_disc"><p>배송비 : 무료</p></div>
+                                        <div class = "order_disc"><p>적립금 : 2%</p></div>
+                                      </div>
+                                    </div>
+                            </div>
+                    </div>
 
 
 

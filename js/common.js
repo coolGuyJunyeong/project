@@ -4,23 +4,6 @@ $(document).ready(function(){
     // ======== header 시작 ========
     // 접근할 요소 변수로 선언
     let mainHeader = "header";
-    // let mainHeaderUlChild = $(".main_wrap .main_nav1>ul").children("li");
-    // console.log(mainHeaderUlChild);
-    // let mainHeaderMenuDefault = (
-    //     $(mainHeaderUlChild[0]).children("div")
-    //     .add($(mainHeaderUlChild[2]).children("a").children("span"))
-    //     .add($(mainHeaderUlChild[3]).children("a").children("span"))
-    //     .add($(mainHeaderUlChild[4]).children("form"))
-    // );
-    // let mainHeaderMenuShow = (
-    //     $(mainHeaderUlChild[0]).children("i")
-    //     .add($(mainHeaderUlChild[2]).children("a").children("i"))
-    //     .add($(mainHeaderUlChild[3]).children("a").children("i"))
-    //     .add($(mainHeaderUlChild[4]).children("a"))
-    // );
-    // console.log(mainHeaderMenuDefault);
-    // console.log(mainHeaderMenuShow);
-
     // 스크롤시 header height 조정, 아이콘 변경 프로그램
     $(window).scroll(function(){ 
         let winS = $(window).scrollTop();

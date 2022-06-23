@@ -2,13 +2,32 @@ $(document).ready(function(){
 
 
     // ======== header 시작 ========
-    let mainHeader = ".main_wrap .main_nav1";
-    let mainHeaderUl = ".main_wrap .main_nav1 ul";
-    let mainContents = ".main_wrap .contents"
-    $(window).scroll(function(){
+    // 접근할 요소 변수로 선언
+    let mainHeader = "header";
+    // let mainHeaderUlChild = $(".main_wrap .main_nav1>ul").children("li");
+    // console.log(mainHeaderUlChild);
+    // let mainHeaderMenuDefault = (
+    //     $(mainHeaderUlChild[0]).children("div")
+    //     .add($(mainHeaderUlChild[2]).children("a").children("span"))
+    //     .add($(mainHeaderUlChild[3]).children("a").children("span"))
+    //     .add($(mainHeaderUlChild[4]).children("form"))
+    // );
+    // let mainHeaderMenuShow = (
+    //     $(mainHeaderUlChild[0]).children("i")
+    //     .add($(mainHeaderUlChild[2]).children("a").children("i"))
+    //     .add($(mainHeaderUlChild[3]).children("a").children("i"))
+    //     .add($(mainHeaderUlChild[4]).children("a"))
+    // );
+    // console.log(mainHeaderMenuDefault);
+    // console.log(mainHeaderMenuShow);
+
+    // 스크롤시 header height 조정, 아이콘 변경 프로그램
+    $(window).scroll(function(){ 
         let winS = $(window).scrollTop();
-        console.log(winS);
-        if(winS < 40){
+        let screenW = $(window).width();
+        // console.log(winS);
+        console.log(screenW);
+        if(winS < 30){
             $(mainHeader).height((150-winS)+"px");
         }else if(winS < 80){
             $(mainHeader).height((150-winS)+"px");
@@ -17,20 +36,58 @@ $(document).ready(function(){
         }
     });
 
+    // 햄버거 메뉴
+    // let menuCss = {
+    //     "position":"fixed", "width":"100vh"
+    // }
+    // $(mainHeaderMenuShow).click(function(){
+    //     // alert($(mainHeaderMenuDefault[0]).css("display"));
+    //     if($(mainHeaderMenuDefault[0]).css("display")==="none"){
+    //         console.log("menu slideUp");
+    //         console.log($(mainHeader).height()+1);
+    //         $(mainHeaderMenuDefault[0]).removeClass("on").css({
+    //             // "position":"fixed", "top":($(mainHeader).height()+1)+"px", "left":"0",
+    //             // "width":"100vw", "height":"150px", "border-radius":"0"
+    //         }).stop(true).slideDown(100);
+            
+    //     }else{
+    //         console.log("menu slideDown");
+    //         $(mainHeaderMenuDefault[0]).addClass("on").stop(true).slideUp(100);
+    //     }
+    // })
+    // $(window).resize(function(){
+    //     let screenW = $(window).width();
+    //     if(800 < screenW){
+    //         $(mainHeaderMenuDefault[0]).removeClass("on").css("").stop(true).slideDown(0);
+    //     }else{
+    //         if(!$(mainHeaderMenuDefault[0]).hasClass("on")){
+    //             $(mainHeaderMenuDefault[0]).stop(true).slideUp(0);
+    //         }
+            
+    //     }
+    // })
+    // ======== header 끝   ========
+
+
+    // ======== login popup 시작 ========
+    // 로그인 클릭시 body에 빈 div를 생성하여 추가함
+    // 이후 div에 새로운 div를 추가하고 요소 안에 login_test.html를 추가함
     $(".main_nav1_login").children().click(function(){
         console.log("click login");
         $("body").append("<div class='demo'></div>");
         $(".demo").css({
-            "width":"100%", "height":"100%", "background":"rgba(255,0,0,0.2)",
+            "width":"100%", "height":"100%", "background":"rgba(0,0,0,0.35)",
             "position":"fixed", "top":"0", "left":"0", "z-index":"5000"
         });
         $(".demo").append("<div></div>")
         $(".demo div").css({
-            "width":"80%", "height":"auto", "background":"rgba(0,0,255,0.4)", "padding":"10px",
+            "width":"80%", "height":"auto", "background":"rgba(0,0,0,0.35)", 
+            "padding":"10px", "border-radius":"20px", 
             "position":"fixed", "top":"10%", "left":"10%", "z-index":"6000"
         });
         $(".demo>div").load("./login_test.html");
-        $(".demo").click(function(){$(".demo").remove()});
+        $(".demo>div").click(function(){$(".demo").remove()});
     });
-    // ======== header 끝   ========
+    // ======== login popup 끝   ========
+    
 });

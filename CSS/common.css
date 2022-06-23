@@ -2,61 +2,42 @@
 .main_wrap{width: 100%;}
 .clear::after{content: ""; display: block; clear: both;}
 body{font-family: "나눔고딕";}
-.main_nav1{ width: 100%; height: 150px; background: #fff; border-bottom: 1px solid rgba(0,0,0,.3); position: fixed; top: 0; left: 0;}
-.main_nav1 ul{
-    list-style: none;
+
+
+/* ================ header start ================ */
+header{position: fixed; width: 100%; height: 150px; background-color: #fff; border-bottom: 1px solid #ccc;}
+header ul{list-style: none;}
+header .header_logo{display: block; width: 60%; height: 100%; margin: 0 0 0 20%; float: left;}
+header .header_logo img{width: 100%; height: 100%; object-fit: contain;}
+header .nav_top i{float: right; margin: 10px; font-size: 2em;}
+
+header .nav_bottom{position: fixed; bottom: 0; left: 0; width: 100%; height: 60px; background-color: #FFEC3F;}
+header .nav_bottom i{float: left; width: 20%; height: 100%; font-size: 26px; text-align: center; line-height: 60px;}
+/* ================ header end ================ */
+.contents{padding-top: 200px !important;}
+/* header가 상단에 position:fixed되어서 contents에 padding이나 margin으로 header만큼 여백을 만들어줘야함 */
+/* 안그러면 contents 내용 일부가 header만큼 가려서 안보임 */
+
+/* 테스트용 지워도 됨 */
+.contents{
+    /* height: 2000px;  */
+    background-color: rgba(255,255,0,.1);
     padding: 5px;
-    font-size: 14px;
-    margin: 0 auto;
-    width: 95%;
-    height: 100%;
-    /* background-color: rgba(0,0,0,0.1); */
 }
-.main_nav1 .main_nav1_menu{
-    width: 25%; height: 100%;
-    float: left;
-    background-color: rgba(255,0,0,0.1);
+.contents>div{
+    margin: 20px; padding: 70px; 
+    background: #fff; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
 }
-.main_nav1 .main_nav1_logo{
-    width: 50%; height: 100%;
-    text-align: center;
-    float: left;
-    background-color: rgba(0,0,0,0.1);
-}
-.main_nav1 .main_nav1_logo a img{width: 100%; height: 100%; object-fit: contain;}
-.main_nav1 .main_nav1_login{
-    width: auto; height: auto;
-    margin: 3px 3px 6px 3px; padding: 3px;
-    float: right;
-    background-color: rgba(255,0,0,0.1);
-}
-.main_nav1 .main_nav1_cart{
-    width: auto; height: auto;
-    margin: 3px 3px 6px 3px; padding: 3px;
-    float: right;
-    background-color: rgba(0,255,0,0.1);
-}
-.main_nav1 .main_nav1_search{
-    width: 25%; max-width: 250px; height: auto;
-    float: right;
-    background-color: rgba(0,0,255,0.1);
-}
-.main_nav1 .main_nav1_search form{
-    width: auto; height: auto; box-sizing: border-box;
-    margin: auto 0;
-    /* background-color: rgba(0,0,0,0.1); */
-}
-.main_nav1 .main_nav1_search form input{
-    width: 100%; height: calc(1em + 20px); box-sizing: border-box;
-    padding: 10px 15px;
-    border: 3px solid #aaa;; border-radius: 50vh;
-    outline: none;
-    background-color: rgba(255,255,255,1);
-}
-.main_nav1 .main_nav1_search form input:focus{outline: none; border: 3px solid #444;}
+/* 테스트용 지워도 됨 */
 
-.main_nav1 ul li a{color: rgba(0,0,0,.6); text-decoration: none;}
-.main_bold{color: #000;}
-
-.contents{padding-top: 200px;}
-.contents{height: 2000px; background-color: rgba(255,255,0,.1);}
+/* ======== 반응형 웹 header 부분 ======== */
+@media all and (max-width:900px) {
+    header .header_logo{width: auto; max-width: calc(100% - 100px); margin-left: 0;}
+    header .header_logo img{width: 100%; height: 100%; object-fit: contain;}
+}
+@media all and (max-width:650px) {
+    header .header_logo{width: auto; max-width: calc(100% - 100px); margin-left: 0;}
+    header .header_logo img{width: 100%; height: 100%; object-fit: contain;}
+    header .nav_top .fa-user, header .nav_top .fa-magnifying-glass{display: none;}
+}
+/* ======== 반응형 웹 header 부분 ======== */

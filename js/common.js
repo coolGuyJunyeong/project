@@ -44,7 +44,7 @@ $(function(){
             "border-radius":"20px", 
             "position":"fixed", "top":"5%", "left":"5%", "overflow":"auto"
         });
-        $(".demo>div").load("./login_test.html");
+        $(".demo>div").load("../login.html");
         $(".demo>div").click(function(){$(".demo").remove()});
     });
     // ======== login popup 끝   ========

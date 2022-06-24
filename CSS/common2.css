@@ -47,7 +47,7 @@ header .nav_bottom .basket>a>div>div>img{width: 100%; height: 100%; object-fit: 
 .new{background: url(../images/new.png)no-repeat;background-size: contain;width: 40px;height:40px;display: inline-block;margin-left: 5px;}
 .farmer{background: url(../images/farmer.png)no-repeat;background-size: contain;width: 50px;height:50px;display: inline-block;margin-bottom: -5px;}
 .caption h3{line-height: 130px;}
-.product_wrap{width: 1280px;margin: 0 auto;}
+.product_wrap{width: 80%;margin: 0 auto;}
 .flex{display: flex;justify-content: space-evenly; flex-wrap: nowrap;}
 .product_wrap h5{font-weight: bold;}
 .price{font-size: 20px;}
@@ -60,6 +60,64 @@ header .nav_bottom .basket>a>div>div>img{width: 100%; height: 100%; object-fit: 
 .wish{position: absolute;top: 55%;left: 90px;}
 .add{position: absolute;top: 55%;right: 90px;}
 /* 메인 제품목록 CSS */
+
+/* 제품상세 */
+.product_wrap{width: 1000px; margin: 20px auto; display: flex; }
+.card{width: 500px;}
+#myimage{width: 500px;height: 500px;}
+.product_litleMenu li{ margin: 5px;}
+.card-text{
+  position: relative;
+  height: 70px;
+  line-height: 70px;
+  border-bottom: 1px solid #aaa;
+}
+.card-text span{ position: absolute;left: 0;top: 0; color: #f0a007; font-size: 30px;}
+.card-text p{position: absolute; right: 0; top: 0%;float: right;}
+
+.card-text b{color: #a6a6a6;text-decoration: line-through;margin-right: 10px;}
+.card-text strong{font-size: 25px;}
+.order_option_wrap{ margin: 10px auto;width: 450px; height: 150px; border-radius: 3px;}
+.order_space{ height: 200px;}
+.order_disc{ border-bottom: 1px solid #aaa;height: 45px;line-height: 45px;width: 400px; margin-left:-7px ; font-size: 14px;color: #555;}
+.order_option{width: 400px; height: 40px;line-height: 40px; padding-left: 10px;}
+
+.order_controll{
+  width: 400px;
+  display: flex;
+  justify-content: space-between;
+  height: 50px;
+  margin-top: 10px;
+  border: 1px solid #aaa;
+  text-align: center;
+  align-items: center;
+  display: none;
+}
+.order_controll_inner{
+  width: 200px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.order_num{ width: 20px; text-align: center;border: none;}
+.order_controll button{ height: 30px;width: 30px; opacity: 1;}
+.order_controll input{background: #fff;text-align: center; border: none;}
+.order_check{width: 400px;margin-left: -10px;margin-top: 10px;text-align: left;}
+.order_check_inner{display: flex; justify-content: space-between;line-height: 50px;padding-left: 20px;}
+.order_check_inner span{color: #f0a007;}
+.order_check_inner button{opacity: 1;}
+
+/* 제품 상세 끝 */
+
+
+/* 로그인 */
+
+.demo div{
+    /* width: 800px; */
+    margin: 0% auto;
+}
+
+/* 로그인 */
 
 /* ================ index main end ================ */
 
@@ -82,7 +140,7 @@ header .nav_bottom .basket>a>div>div>img{width: 100%; height: 100%; object-fit: 
     .product h5, .product p{width: 300px;}
     .product_img{width: 300px;height: 300px;}
     .wish{position: absolute;top: 55%;left: 80px;}
-    .add{position: absolute;top: 55%;right: 170px;}
+    .add{position: absolute;top: 55%;}
 }
 @media all and (max-width:600px) {
     header .header_logo{width: auto; max-width: calc(100% - 80px); margin-left: 0;}
@@ -94,5 +152,12 @@ header .nav_bottom .basket>a>div>div>img{width: 100%; height: 100%; object-fit: 
     .contents .main_slide_banner .carousel-item>a img:nth-of-type(1){display: none !important;}
     .contents .main_slide_banner .carousel-item>a img:nth-of-type(2){display: block !important;}
     .contents .app_sale{display: block !important;}
+    .flex{display:flex;flex-flow: row wrap;}
+    .product_wrap{width: 100%;margin: 0 auto;}
+    .product{position: relative;}
+    .product h5, .product p{width: 300px;}
+    .product_img{width: 300px;height: 300px;}
+    .wish{position: absolute;top: 55%;left: 90px;}
+    .add{position: absolute;top: 55%;right: 90px;}
 }
 /* ======== 반응형 웹 header 부분 ======== */

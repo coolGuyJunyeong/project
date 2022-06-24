@@ -4,149 +4,177 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>상세페이지</title>
-    <link rel="stylesheet" href="./CSS/common.css">
+    <title>Document</title>
+    <link rel="stylesheet" href="./CSS/common2.css">
     <link rel="stylesheet" href="./CSS/bootstrap.css">
-    <link rel="stylesheet" href="./cloud-zoom.1.0.2-1/cloud-zoom.css">
     <script src="./js/bootstrap.js"></script>
     <script src="./js/jquery-3.6.0.js"></script>
     <script src="./js/common.js"></script>
-    <script src = "http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
-    <script src="./cloud-zoom.1.0.2-1/cloud-zoom.1.0.2.min.js"></script>
+    <script src="https://kit.fontawesome.com/cd15a5a4d9.js" crossorigin="anonymous"></script>
+    
 </head>
 <body>
     <div class = "main">
         <div class = "main_wrap">
+            <!-- ================================================== -->
+            <!-- header -->
+            <!-- ================================================== -->
             <header>
-                <nav class = "main_nav1">
-                    <div class = "main_line">
-                        <ul class = "main_upper">
-                            <li><a href="">로그인</a></li>
-                        </ul>
-                    </div>
-                        <ul class = "main_lower">
-                            <li><a href=""><span>로고</span></a></li>
-                            <li><a href="">산지에서 식탁까지 안전하게! | </a></li>
-                            <li><a href=""> 스토어 찜</a></li>
-                            <form action="">
-                                <input type="text" placeholder="검색어를 입력해보세요">
-                            </form>
-                        </ul>
+                <div class="header_logo clear">
+                    <a href="./index.html" >
+                        <img src="https://raw.githubusercontent.com/plastichong/project/lee/images/logo_share.png" alt="">
+                    </a>
+                </div>
+                <nav class="nav_top clear">
+                    <ul>
+                        <li><a href="#"><i class="fa-solid fa-user"></i></a></li>
+                        <li><a href=""><i class="fa-solid fa-cart-shopping"></i></a></li>
+                        <li><a href=""><i class="fa-solid fa-magnifying-glass"></i></a></li>
+                    </ul>
+                </nav>
+                <nav class="nav_bottom clear">
+                    <ul>
+                        <li><a href=""><i class="fa-solid fa-bars"></i></a></li>
+                        <li><a href=""><i class="fa-solid fa-magnifying-glass"></i></a></i></li>
+                        <li><a href=""><i class="fa-solid fa-house-chimney"></i></a></li>
+                        <li><a href="#"><i class="fa-solid fa-user"></i></a></li>
+                        <li>
+                            <div class="fa-solid basket">
+                                <a href="">
+                                    <div>
+                                        <div>
+                                            <img src="https://shop-phinf.pstatic.net/20220523_69/16533021917573Y73N_JPEG/54438034195242630_1483584243.jpg?type=f296_296" alt="" class="product_img">
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </li>
+                    </ul>
                 </nav>
             </header>
-              <div class = "main_content">
-                  <div class = "main_banner main_line">
-                      <!-- <h1>돌쇠네 농산물</h1> -->
-                      <img src="https://shop-phinf.pstatic.net/20210629_176/162495835604510kFI_JPEG/113012459439153487_-83339703.jpg?type=w640" alt="">
-                  </div>
-                  <nav class = "main_nav2">
-                    <div>
-                        <ul>
-                            <li><a href="" class = "bold">신상품</a></li>
-                            <li><a href="" class = "bold">전체상품</a></li>
-                            <li><a href="" class = "bold">농.수.축산물</a></li>
-                            <li><a href="" class = "bold">전국맛집</a></li>
-                            <li><a href="">공지사항</a></li>
-                            <li><a href="">리뷰이벤트</a></li>
-                            <li><a href="">쇼핑스토리</a></li>
-                            <li><a href="">판매자 정보</a></li>
-                        </ul>
-                    </div>
-                </nav>
-                <div>
-                    <ul class = "product_litleMenu">
-                        <li>홈</li>
-                        <li>>농.수 축산물</li>
-                        <li>>농산물</li>
+            <!-- ================================================== -->
+            <!-- header -->
+            <!-- ================================================== -->
+            <div class="contents">
+                <nav class = "contents_nav clear">
+                    <ul class="clear">
+                        <li><a href="" class = "bold">신상품</a></li>
+                        <li><a href="" class = "bold">전체상품</a></li>
+                        <li><a href="" class = "bold">오늘의 특가</a></li>
+                        <li><a href="">공지사항</a></li>
+                        <li><a href="">리뷰이벤트</a></li>
+                        <li><a href="">판매자 정보</a></li>
                     </ul>
-                </div>
-                 
-                        <div class="product_wrap">
-                            <img id="myimage" src="https://shop-phinf.pstatic.net/20220523_69/16533021917573Y73N_JPEG/54438034195242630_1483584243.jpg?type=m510" width="300" height="240" alt="Girl">
-                                
-                            <div class="card">
-                                    <div class="card-body">
-                                      <h5 class="card-title">농가직송 경산 신선복숭아 1.6kg</h5>
-                                      <div class="card-text"><span>67%</span><p><b class = "dc"> 45,900원 </b><strong>15,000원</strong></p></div>
-                                      <div class = "order_option_wrap">
-                                        <div class = "order_space">
-                                            <select name="" id="" class = "order_option">
-                                                <option value="">상품 구성 </option>
-                                                <option value="옵션 1 : 10,000원"> 옵션 1 </option>
-                                                <option value="옵션 2 : 20,000원"> 옵션 2 </option>
-                                                <option value="옵션 3 : 30,000원"> 옵션 3 </option>
-                                            </select>
-                                            <div class = "order_controll">
-                                                <input type="text" value="" class = "order_name" disabled></input>
-                                                <div class="order_controll_inner">
-                                                    <button id = "-" value="-">-</button>
-                                                    <input type="text" value="1" class = "order_num" disabled></input>
-                                                    <button id = "+" value="+">+</button>
-                                                    <button class = "order_send">OK</button>
-                                                </div>
-                                            </div>
-                                            <div class = "order_check">
+                </nav>
+              
 
-                                            </div>
-                                            <script>
-                                                $(function(){
-                                                   
-                                                    $(".order_option").change(function(){
-                                                        let val = $(this).val()
-                                                        $(".order_name").val(val)
-                                                        $(".order_num").val(1)
-                                                        $(".order_controll").css("display","flex")
-
-                                                    })
-
-                                                    let i = 1;
-                                                    $(".order_send").click(function(){
-                                                        i++
-                                                        $(".order_check").append("<div class = 'order_check_inner'></div>")
-                                                        $(".order_check div").addClass("num"+i)
-                                                        $(".order_check_inner").append($(".order_name").val()," 수량 ",$(".order_num").val(),"<span>"+18900+"</span>")
-                                                    })
-
-
-                                                    $(".order_controll button").click(function(){
-                                                        let orderNum;
-                                                        let count=1;
-                                                        if($(this).val()=="+"){
-                                                            orderNum = Number($(".order_num").val())
-                                                            orderNum ++
-                                                            $(".order_num").val(orderNum)
-                                                        }else if($(".order_num").val() > 0){
-                                                            if($(this).val()=="-"){
-                                                                orderNum = Number($(".order_num").val())
-                                                                orderNum --
-                                                                $(".order_num").val(orderNum)
-                                                            }
-                                                        }
-                                                    })
-
-                                                })
-                                            </script>
+                <div class="product_wrap">
+                    <img id="myimage" src="https://shop-phinf.pstatic.net/20220523_69/16533021917573Y73N_JPEG/54438034195242630_1483584243.jpg?type=m510" width="300" height="240" alt="Girl">
+                        
+                    <div class="card">
+                            <div class="card-body">
+                              <h5 class="card-title">농가직송 경산 신선복숭아 1.6kg</h5>
+                              <div class="card-text"><span>67%</span><p><b class = "dc"> 45,900원 </b><strong>15,000원</strong></p></div>
+                              <div class = "order_option_wrap">
+                                <div class = "order_space">
+                                    <select name="" id="" class = "order_option">
+                                        <option value="">상품 구성 </option>
+                                        <option value="옵션 1 : 10,000원"> 옵션 1 </option>
+                                        <option value="옵션 2 : 20,000원"> 옵션 2 </option>
+                                        <option value="옵션 3 : 30,000원"> 옵션 3 </option>
+                                    </select>
+                                    <div class = "order_controll">
+                                        <input type="text" value="" class = "order_name" disabled></input>
+                                        <div class="order_controll_inner">
+                                            <button id = "-" value="-">-</button>
+                                            <input type="text" value="1" class = "order_num" disabled></input>
+                                            <button id = "+" value="+">+</button>
+                                            <button class = "order_send">OK</button>
                                         </div>
-                                        <div class = "order_disc"><p>원산지 : 국산</p></div>
-                                        <div class = "order_disc"><p>배송비 : 무료</p></div>
-                                        <div class = "order_disc"><p>적립금 : 2%</p></div>
-                                      </div>
                                     </div>
+                                    <div class = "order_check">
+                                                   
+                                    </div>
+                            <script>
+                                $(function () {
+
+                                    $(".order_option").change(function () {
+                                        let val = $(this).val()
+                                        $(".order_name").val(val)
+                                        $(".order_num").val(1)
+                                        $(".order_controll").css("display", "flex")
+
+                                    })
+
+                                    let i = 1;
+                                    $(".order_send").click(function () {
+                                        if(i<4){
+                                            let add = "id = num"
+                                            add += i
+                                            $("<div class = 'order_check_inner' " + add + "></div>").appendTo(".order_check")
+                                            let c = $(".order_name").val()
+                                            c += " 수량 : "
+                                            c +=  $(".order_num").val()
+                                            $("#num"+i).text(c)
+                                            $("<div><span>" + 18900 + "</span><button class = 'bt'>x</button></div>").appendTo("#num"+i)
+                                            i++
+                                            console.log(c);
+                                            console.log(i);
+                                            
+                                        }
+                                    })
+                                    $(document).on("click",".bt",function(){
+                                        i--
+                                        console.log("button");
+                                        $(this).parent().parent().remove()
+                                        console.log(i);
+                                        
+                                    })
+
+                                    $(".bt").on("click",function(){
+                                       console.log("button");
+                                       
+                                    })
+                                    let orderNum;
+                                    $(".order_controll button").click(function () {
+                                        // let count = 1;
+                                        if ($(this).val() == "+") {
+                                            orderNum = Number($(".order_num").val())
+                                            orderNum++
+                                            $(".order_num").val(orderNum)
+                                        } else if ($(".order_num").val() > 0) {
+                                            if ($(this).val() == "-") {
+                                                orderNum = Number($(".order_num").val())
+                                                orderNum--
+                                                $(".order_num").val(orderNum)
+                                            }
+                                        }
+                                    })
+
+                                })
+                            </script>
+                                </div>
+                                <div class = "order_disc"><p>원산지 : 국산</p></div>
+                                <div class = "order_disc"><p>배송비 : 무료</p></div>
+                                <div class = "order_disc"><p>적립금 : 2%</p></div>
+                              </div>
                             </div>
                     </div>
+            </div>
 
 
 
-              </div>
-
-           
+      </div>
+                  
+                
+            </div>
         </div>
     </div>
-    <!--
-        
-        
-        메인페이지
-        
+<!--
+    
+    
+    메인페이지
+    
     상세
     결제페이지
     Q&A

@@ -105,7 +105,6 @@
                                         $(".order_controll").css("display", "flex")
 
                                     })
-
                                     let i = 1;
                                     $(".order_send").click(function () {
                                         if(i<4){
@@ -118,9 +117,6 @@
                                             $("#num"+i).text(c)
                                             $("<div><span>" + 18900 + "</span><button class = 'bt'>x</button></div>").appendTo("#num"+i)
                                             i++
-                                            console.log(c);
-                                            console.log(i);
-                                            
                                         }
                                     })
                                     $(document).on("click",".bt",function(){
@@ -128,16 +124,9 @@
                                         console.log("button");
                                         $(this).parent().parent().remove()
                                         console.log(i);
-                                        
-                                    })
-
-                                    $(".bt").on("click",function(){
-                                       console.log("button");
-                                       
                                     })
                                     let orderNum;
                                     $(".order_controll button").click(function () {
-                                        // let count = 1;
                                         if ($(this).val() == "+") {
                                             orderNum = Number($(".order_num").val())
                                             orderNum++

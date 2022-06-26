@@ -5,17 +5,59 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="./CSS/common.css">
+    <!-- <link rel="stylesheet" href="./CSS/common.css"> -->
     <link rel="stylesheet" href="./CSS/bootstrap.css">
-    <script src="./js/bootstrap.js"></script>
+    <!-- <script src="./js/bootstrap.js"></script> -->
     <script src="./js/jquery-3.6.0.js"></script>
-    <script src="./js/common.js"></script>
+    <!-- <script src="./js/common.js"></script> -->
     <script src="https://kit.fontawesome.com/cd15a5a4d9.js" crossorigin="anonymous"></script>
-    
+    <style>
+        div{display: inline-block; margin: 3px; padding: 5px; border: 2px solid #ccc; border-radius: 10px; background-color: #fff;}
+        .shipping_list{width: 1000px; padding: 5px; min-height: 100px;}
+        .shipping_list>div{display: block;}
+        .red{background-color: rgba(255,0,0,0.3);}
+        .green{background-color: rgba(0,255,0,0.3);}
+        .blue{background-color: rgba(0,0,255,0.3);}
+    </style>
 </head>
 <body>
-    <div class="shipping_list">
-    </div>
-    <script src="./js/shipping_check.js"></script>
+    <button>불러오기</button>
+    <br>
+    <div class="shipping_list"></div>
+    <!-- <script src="./js/shipping_check.js"></script> -->
+    <script>
+        $("button").click(function(){
+            $.getJSON("./json/shipping.js", function(result){
+                console.log(result);
+                // $.each(result, function(i, field){
+                //     $("div").append(field + " ");
+                // });
+                $.each(result, function(i, obj){
+                    console.log(i,obj);
+                    let addHtml="";
+                    addHtml += "<div><div class='red'><div>"+i+"</div></div> ";
+                    let c=0;
+                    for(let key in obj){
+                        console.log(key, obj[key]);
+                        addHtml+="<div class=";
+                        if(c==0){
+                            addHtml+="'green'><div>"+key+"</div> : <div>"+obj[key]+"</div></div>";
+                        }else if(c==1){
+                            addHtml+="'blue'><div>"+key+"</div> : ";
+                            for(let i in obj[key]){
+                                addHtml+="=><div>"+obj[key][i]+"</div>";
+                            }
+                            addHtml+="</div>";
+                        }
+                        
+                        c++;
+                    }
+                    addHtml+="</div>"
+                    $(".shipping_list").append(addHtml);
+                });
+            });
+        });
+    </script>
+    
 </body>
 </html>

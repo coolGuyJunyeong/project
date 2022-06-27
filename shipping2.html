@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <link rel="stylesheet" href="./CSS/common.css"> -->
+    <link rel="stylesheet" href="./CSS/bootstrap.css">
+    <!-- <script src="./js/bootstrap.js"></script> -->
+    <script src="./js/jquery-3.6.0.js"></script>
+    <!-- <script src="./js/common.js"></script> -->
+    <script src="https://kit.fontawesome.com/cd15a5a4d9.js" crossorigin="anonymous"></script>
+    <style>
+        body{width: 100%; padding: 10px; text-align: center;}
+        .clear::after{display: block; content: ""; clear: both;}
+        .shipping_list{width: 100%; max-width: 1200px; padding: 10px; margin: 20px auto 0 auto; min-height: 100px; border: 2px solid #ccc; border-radius: 10px; background-color: #fff;}
+        .shipping_list>span{display: block; width: 100%; margin-bottom: 20px; background-color: #ccc;}
+        .buy_item{width: 33.33%; padding-bottom: 33.33%; position: relative; float: left;}
+        .buy_item>div{width: 100%; height: 100%; position: absolute; left: 0; top: 0; border-radius: 10px; overflow: hidden;}
+        .buy_item>div>img{width: 100%; height: 90%; object-fit: cover;}
+        .buy_item>div>div{width: 100%; bottom: 0; background-color: #ff0; margin: 0;}
+        /* .buy_item>img{padding: 10px; display: inline-block; margin: 10px; border: 2px solid #ccc; border-radius: 10px;} */
+
+        .demo{position: fixed; top: 0; left: 0; width: 100%; min-height: 100%; padding: 30px 10px ; margin: 0; box-sizing: border-box; background-color: rgba(0,0,0,0.2); text-align: center;}
+        .demo_contents{position: relative; width: 100%; max-width: 800px; margin: 0 auto; padding: 50px 10px 10px 10px; background-color: #fff; border-radius: 10px;}
+        .remove_button{position: absolute; top: 0; right: 0; overflow: hidden; font-size: 32px; width: 50px; height: 50px;}
+    </style>
+</head>
+<body>
+    <div class="shipping_list clear"><span>구매한 상품</span></div>
+    <!-- <script src="./js/shipping_check.js"></script> -->
+    <script>
+        let shipping_obj = [];
+        $.getJSON("./json/shipping2.json", function(result){
+            console.log(result);
+            shipping_obj = result;
+            console.log(shipping_obj);
+            console.log(shipping_obj["item_nums"].length);
+            start();
+        });
+
+        function start(){
+            console.log("function start");
+            console.log(shipping_obj);
+            for(let i=0; i<shipping_obj["item_nums"].length; i++){
+                // console.log(shipping_obj["item_nums"][i]);
+                let item = shipping_obj[shipping_obj["item_nums"][i]];
+                // console.log(item);
+                // console.log(item[])
+                $(".shipping_list").append("<div class='buy_item'><div></div></div>"); 
+                $(".buy_item:last div").append("<img src='"+item["img"]+"'>")
+                $(".buy_item:last div").append("<div>"+item["item_name"]+"</div>")
+                $(".buy_item:last").click(function(){
+                    // alert(shipping_obj[item]["item_name"]);
+                    $("body").append("<div class='demo'><div class='demo_contents'><div class='remove_button'>X</div></div></div>");
+                    $(".demo_contents").append("<img src='"+item["img"]+"'>");
+                    $(".demo_contents").append("<div class='item_name'>상품명 : "+item["item_name"]+"</div>");
+                    $(".demo_contents").append("<div class='buy_day'>구매일 : "+makeDate(item["buy_day"])+"</div>");
+                    $(".demo_contents").append("<div class='price'>가격 : "+item["price"]+"원</div>");
+                    // $(".demo_contents").append("<div class='shipping_move'>"+item["shipping_move"]+"</div>");
+                    let text="<div class='shipping_move'>배송정보";
+                    for(let j in item["shipping_move"]){
+                        let move = item["shipping_move"][j];
+                        text+="<div>"+"<div>시간 : "+makeDate(move[0])+" | 위치 : "+move[1]+"</div>"+"</div>";
+                    }
+                    text+="</div>";
+                    $(".demo_contents").append(text);
+                    $(".remove_button").click(function(){
+                        $(".demo").remove();
+                    });
+                });
+            }
+        }
+
+        function makeDate(day=""){
+            if(day.length == 12){
+                let returnDate = day.slice(0,4)+"년 ";
+                if(parseInt(day.slice(4,6))<10){
+                    returnDate += day.slice(5,6)+"월 ";
+                }else{
+                    returnDate += day.slice(4,6)+"월 ";
+                }
+                if(parseInt(day.slice(6,8))<10){
+                    returnDate += day.slice(7,8)+"일 ";
+                }else{
+                    returnDate += day.slice(6,8)+"일 ";
+                }
+                if(parseInt(day.slice(8,10))<10){
+                    returnDate += day.slice(9,10)+"시 ";
+                }else{
+                    returnDate += day.slice(8,10)+"시 ";
+                }
+                if(parseInt(day.slice(10,12))<10){
+                    returnDate += day.slice(11,12)+"분 ";
+                }else{
+                    returnDate += day.slice(10,12)+"분 ";
+                }
+                return returnDate;
+            }
+            return day;
+        }
+
+        
+    </script>
+    
+</body>
+</html>

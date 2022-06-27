@@ -16,7 +16,7 @@ $(function(){
         let winS = $(window).scrollTop();
         let screenW = $(window).width();
         // console.log(winS);
-        console.log(screenW);
+        // console.log(screenW);
         if(winS < 30){
             $(mainHeader).height((150-winS)+"px");
         }else if(winS < 80){
@@ -53,13 +53,17 @@ $(function(){
     //     $(".demo>div").click(function(){$(".demo").remove()});
     // });
     
-
-
-
-
+    
     // ======== login popup 끝   ========
-
+    
     // 주문 옵션 추가 기능
+    
+    function addCommaToString(num){ //콤마 추가 후 문자열 파싱
+        return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    }
+    function subCommaToInt(str){ //콤마 제거 후 정수 파싱
+       return parseInt(str.split(',').join(""));
+    }
 
     //select 된 값 받아오기
     let price;
@@ -68,11 +72,9 @@ $(function(){
         $(".order_name").val(val)
         $(".order_num").val(1)
         $(".order_controll").css("display", "flex")
-        //가격 부분 파싱(콤마 제거 후 정수타입으로 변환)
-        price = $(".order_option").val().substr(9)
+        price = $(".order_option").val().substr(9) //수정 필요
         price = price.slice(0,-2)
-        price = parseInt(price.split(',').join(""))
-        
+        price = subCommaToInt(price);
     })
     //옵션 수량 컨트롤 버튼
     let orderNum;
@@ -93,20 +95,12 @@ $(function(){
     
     //선택옵션 요소 생성 후 각각 고유id부여
     let i = 1; //count 변수 i == id값으로도 쓰임
+    //문자열로 변환 후 정규식으로 1000단위 "," 생성 코드
     let currentPrice = ""; 
-    
+    let finalPrice = 0;
     $(".order_send").click(function () {
-        
         currentPrice = price*parseInt(orderNum) // 옵션 가격 * 선택 수량 
-
-        //문자열로 변환 후 정규식으로 , 생성 코드
-        
-        // currentPrice = toString(currentPrice)
-        // currentPrice = currentPrice.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-        // console.log(currentPrice);
-        
-        //undefined....실패
-
+        currentPrice = addCommaToString(currentPrice)
         if(i<4){
             let add = "id = num" 
             add += i
@@ -115,10 +109,13 @@ $(function(){
             c += " 수량 : "
             c +=  $(".order_num").val()
             $("#num"+i).text(c)
-            $("<div><span>" + currentPrice + "</span><button class = 'bt'>x</button></div>").appendTo("#num"+i)
+            $("<div><span> +" + currentPrice + "원 </span><button class = 'bt'>x</button></div>").appendTo("#num"+i)
             i++
-            // console.log(typeof(orderNum));
-            
+            let resultPrice = $(".order_check_inner").eq(i-2).children("div").children("span").text()
+            resultPrice = resultPrice.slice(2,-2)
+            resultPrice = subCommaToInt(resultPrice);
+            finalPrice += resultPrice
+            $(".order_price").text(addCommaToString(finalPrice)+"원 결재하기")
         }
     })
     //선택옵션 삭제
@@ -126,7 +123,9 @@ $(function(){
         i--
         console.log("button");
         $(this).parent().parent().remove()
-        console.log(i);
+        console.log($(this).parent().children("span").text());
+        finalPrice -= subCommaToInt($(this).parent().children("span").text())
+        $(".order_price").text(addCommaToString(finalPrice)+"원 결제하기")
     })
 
 })
